@@ -1,0 +1,19 @@
+
+
+<form method="post">
+    {% csrf_token %}
+    <input type="number" name="myname"  value="{{key}}" required>
+    <button type="submit">Facto</button>
+</form>
+<p></p>
+
+Hello, <span style="color:red"> {{name}}!</span>
+
+<!--8607143370 anmol rana-->
+<!--8979503790 akash Choudhary-->
+<!--9200178381-->
+
+
+{% for vv in table%}
+    <p>{{vv}}</p>
+{% endfor %}
