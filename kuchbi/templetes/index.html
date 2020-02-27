@@ -1,0 +1,36 @@
+
+{% extends 'base.html'%}
+
+{% block body%}
+
+<form method="post">
+    {% csrf_token %}
+    {{x}}
+
+    <button type="submit">click Me</button>
+</form>
+
+{% for v in m%}
+    {{v.uname}}
+    {{v.pwd}}
+    <br>
+{%endfor%}
+
+<table>
+    <tr>
+        <th>User</th>
+        <th>Password</th>
+    </tr>
+</table>
+
+
+
+{% endblock%}
+
+
+
+
+{%block title%}MAINpAGE{%endblock%}
+
+
+
