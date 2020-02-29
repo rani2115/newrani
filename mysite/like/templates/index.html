@@ -1,0 +1,76 @@
+<!--tolikes= $(".nipur").text();-->
+        <!--if (tolikes==0){-->
+            <!--$(".nipur").text("1");-->
+            <!--$(".box").addClass('ccolor');-->
+        <!--}-->
+        <!--else{-->
+         <!--$(".nipur").text("0");-->
+         <!--$(".box").removeClass('ccolor');-->
+        <!--}-->
+
+       <!--//$(".nipur").text(parseInt(tolikes)+1);-->
+
+<style>
+
+
+
+    .box{
+    color:red;
+    font-size:100px;
+    cursor: pointer;
+    }
+
+    .ccolor{
+    color:#ddd;
+
+
+
+    }
+</style>
+<div class="box">like <span class="counter">{{likes.like}}</span>K</div>
+
+
+<b>helolo</b>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+$(".box").click(function(){
+        contv =$(".counter").text();
+
+        $.ajax({
+            url:"{% url 'like'%}",
+            type:"get",
+            data:{id:contv},
+            success:function(data){
+               //alert(data);
+               $(".counter").text(data);
+            },
+            error: function (dd){
+                alert('something error');
+            }
+        });
+    });
+
+
+    function show_likes(){
+        $.ajax({
+                url:"{% url 'likes'%}",
+                success:function(data){
+                   $(".counter").text(data);
+
+                },
+                error: function (dd){
+                    alert('something error');
+                }
+            });
+    }
+
+    show_likes();
+
+
+});
+
+
+</script>
